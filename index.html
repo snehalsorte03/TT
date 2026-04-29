@@ -7,8 +7,18 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 25%, #fecfef 50%, #ffecd2 75%, #fcb69f 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 25%, #9b59b6 50%, #3498db 75%, #1abc9c 100%);
             font-family: Arial, sans-serif;
+            color: #ecf0f1;
+        }
+        h1 {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 20px;
         }
         nav {
             background-color: #333;
@@ -36,14 +46,20 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            overflow: hidden;
         }
-        th, td {
-            border: 1px solid #ddd;
+        td {
+            border: 1px solid #555;
             padding: 8px;
             text-align: left;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ecf0f1;
         }
         th {
-            background-color: #f2f2f2;
+            background: linear-gradient(90deg, #34495e, #2c3e50);
+            color: #ecf0f1;
         }
         .task {
             display: flex;
@@ -62,7 +78,7 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-    <div id="graph-container" style="position: absolute; top: 10px; right: 10px; width: 200px; height: 150px; background: white; border: 1px solid #ddd; padding: 5px; border-radius: 5px;">
+    <div id="graph-container" style="position: absolute; top: 10px; right: 10px; width: 200px; height: 150px; background: rgba(0, 0, 0, 0.8); border: 1px solid #555; padding: 5px; border-radius: 5px;">
         <canvas id="progressChart"></canvas>
     </div>
     <h1 id="home">Weekly Daily Tasks Timetable</h1>
@@ -193,8 +209,8 @@
                         datasets: [{
                             label: 'Completed Tasks',
                             data: data,
-                            backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                            borderColor: 'rgba(54, 162, 235, 1)',
+                            backgroundColor: 'rgba(52, 152, 219, 0.8)',
+                            borderColor: 'rgba(52, 152, 219, 1)',
                             borderWidth: 1
                         }]
                     },
@@ -202,15 +218,35 @@
                         responsive: true,
                         maintainAspectRatio: false,
                         scales: {
+                            x: {
+                                ticks: {
+                                    color: '#ecf0f1'
+                                },
+                                grid: {
+                                    color: '#555'
+                                }
+                            },
                             y: {
                                 beginAtZero: true,
-                                max: 9
+                                max: 9,
+                                ticks: {
+                                    color: '#ecf0f1'
+                                },
+                                grid: {
+                                    color: '#555'
+                                }
                             }
                         },
                         plugins: {
                             title: {
                                 display: true,
-                                text: 'Weekly Progress'
+                                text: 'Weekly Progress',
+                                color: '#ecf0f1'
+                            },
+                            legend: {
+                                labels: {
+                                    color: '#ecf0f1'
+                                }
                             }
                         }
                     }
