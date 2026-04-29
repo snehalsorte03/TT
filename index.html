@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekly Daily Tasks Timetable</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-            background-color: #e6f7ff;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 25%, #fecfef 50%, #ffecd2 75%, #fcb69f 100%);
             font-family: Arial, sans-serif;
         }
         nav {
@@ -61,6 +62,9 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
+    <div id="graph-container" style="position: absolute; top: 10px; right: 10px; width: 200px; height: 150px; background: white; border: 1px solid #ddd; padding: 5px; border-radius: 5px;">
+        <canvas id="progressChart"></canvas>
+    </div>
     <h1 id="home">Weekly Daily Tasks Timetable</h1>
     <table>
         <tr>
@@ -165,6 +169,55 @@
         </tr>
     </table>
     <script>
+        let progressChart;
+
+        function updateChart() {
+            const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            const data = days.map(day => {
+                let count = 0;
+                document.querySelectorAll(`input[data-day="${day}"]`).forEach(checkbox => {
+                    if (checkbox.checked) count++;
+                });
+                return count;
+            });
+
+            if (progressChart) {
+                progressChart.data.datasets[0].data = data;
+                progressChart.update();
+            } else {
+                const ctx = document.getElementById('progressChart').getContext('2d');
+                progressChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: days,
+                        datasets: [{
+                            label: 'Completed Tasks',
+                            data: data,
+                            backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 9
+                            }
+                        },
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Weekly Progress'
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
         // Load checked state from localStorage
         document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
             const key = checkbox.dataset.day + '-' + checkbox.dataset.time;
@@ -172,13 +225,17 @@
             checkbox.checked = checked;
         });
 
-        // Save checked state to localStorage on change
+        // Save checked state to localStorage on change and update chart
         document.addEventListener('change', (e) => {
             if (e.target.type === 'checkbox') {
                 const key = e.target.dataset.day + '-' + e.target.dataset.time;
                 localStorage.setItem(key, e.target.checked);
+                updateChart();
             }
         });
+
+        // Initialize chart on load
+        window.addEventListener('load', updateChart);
     </script>
 </body>
 </html>
