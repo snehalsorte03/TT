@@ -7,10 +7,34 @@
     <style>
         body {
             background-color: #e6f7ff;
+            font-family: Arial, sans-serif;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav li {
+            float: left;
+        }
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav li a:hover {
+            background-color: #111;
         }
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
         }
         th, td {
             border: 1px solid #ddd;
@@ -20,10 +44,24 @@
         th {
             background-color: #f2f2f2;
         }
+        .task {
+            display: flex;
+            align-items: center;
+        }
+        .task input {
+            margin-right: 8px;
+        }
     </style>
 </head>
 <body>
-    <h1>Weekly Daily Tasks Timetable</h1>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <h1 id="home">Weekly Daily Tasks Timetable</h1>
     <table>
         <tr>
             <th>Time</th>
@@ -37,94 +75,110 @@
         </tr>
         <tr>
             <td>6:00 - 7:00</td>
-            <td>Wake up, Morning routine</td>
-            <td>Wake up, Morning routine</td>
-            <td>Wake up, Morning routine</td>
-            <td>Wake up, Morning routine</td>
-            <td>Wake up, Morning routine</td>
-            <td>Sleep in, Light breakfast</td>
-            <td>Sleep in, Relax</td>
+            <td><div class="task"><input type="checkbox" data-day="Monday" data-time="6:00 - 7:00">Wake up, Morning routine</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Tuesday" data-time="6:00 - 7:00">Wake up, Morning routine</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Wednesday" data-time="6:00 - 7:00">Wake up, Morning routine</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Thursday" data-time="6:00 - 7:00">Wake up, Morning routine</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Friday" data-time="6:00 - 7:00">Wake up, Morning routine</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Saturday" data-time="6:00 - 7:00">Sleep in, Light breakfast</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Sunday" data-time="6:00 - 7:00">Sleep in, Relax</div></td>
         </tr>
         <tr>
             <td>7:00 - 8:00</td>
-            <td>Breakfast, Prepare for work</td>
-            <td>Breakfast, Prepare for work</td>
-            <td>Breakfast, Prepare for work</td>
-            <td>Breakfast, Prepare for work</td>
-            <td>Breakfast, Prepare for work</td>
-            <td>Exercise or walk</td>
-            <td>Breakfast, Plan week</td>
+            <td><div class="task"><input type="checkbox" data-day="Monday" data-time="7:00 - 8:00">Breakfast, Prepare for work</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Tuesday" data-time="7:00 - 8:00">Breakfast, Prepare for work</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Wednesday" data-time="7:00 - 8:00">Breakfast, Prepare for work</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Thursday" data-time="7:00 - 8:00">Breakfast, Prepare for work</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Friday" data-time="7:00 - 8:00">Breakfast, Prepare for work</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Saturday" data-time="7:00 - 8:00">Exercise or walk</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Sunday" data-time="7:00 - 8:00">Breakfast, Plan week</div></td>
         </tr>
         <tr>
             <td>8:00 - 12:00</td>
-            <td>Work tasks: Meetings, coding</td>
-            <td>Work tasks: Development</td>
-            <td>Work tasks: Testing</td>
-            <td>Work tasks: Documentation</td>
-            <td>Work tasks: Review</td>
-            <td>Household chores</td>
-            <td>Personal projects</td>
+            <td><div class="task"><input type="checkbox" data-day="Monday" data-time="8:00 - 12:00">Work tasks: Meetings, coding</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Tuesday" data-time="8:00 - 12:00">Work tasks: Development</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Wednesday" data-time="8:00 - 12:00">Work tasks: Testing</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Thursday" data-time="8:00 - 12:00">Work tasks: Documentation</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Friday" data-time="8:00 - 12:00">Work tasks: Review</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Saturday" data-time="8:00 - 12:00">Household chores</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Sunday" data-time="8:00 - 12:00">Personal projects</div></td>
         </tr>
         <tr>
             <td>12:00 - 13:00</td>
-            <td>Lunch break</td>
-            <td>Lunch break</td>
-            <td>Lunch break</td>
-            <td>Lunch break</td>
-            <td>Lunch break</td>
-            <td>Lunch</td>
-            <td>Lunch</td>
+            <td><div class="task"><input type="checkbox" data-day="Monday" data-time="12:00 - 13:00">Lunch break</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Tuesday" data-time="12:00 - 13:00">Lunch break</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Wednesday" data-time="12:00 - 13:00">Lunch break</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Thursday" data-time="12:00 - 13:00">Lunch break</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Friday" data-time="12:00 - 13:00">Lunch break</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Saturday" data-time="12:00 - 13:00">Lunch</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Sunday" data-time="12:00 - 13:00">Lunch</div></td>
         </tr>
         <tr>
             <td>13:00 - 17:00</td>
-            <td>Continue work tasks</td>
-            <td>Continue work tasks</td>
-            <td>Continue work tasks</td>
-            <td>Continue work tasks</td>
-            <td>Continue work tasks</td>
-            <td>Errands or hobbies</td>
-            <td>Family time</td>
+            <td><div class="task"><input type="checkbox" data-day="Monday" data-time="13:00 - 17:00">Continue work tasks</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Tuesday" data-time="13:00 - 17:00">Continue work tasks</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Wednesday" data-time="13:00 - 17:00">Continue work tasks</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Thursday" data-time="13:00 - 17:00">Continue work tasks</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Friday" data-time="13:00 - 17:00">Continue work tasks</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Saturday" data-time="13:00 - 17:00">Errands or hobbies</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Sunday" data-time="13:00 - 17:00">Family time</div></td>
         </tr>
         <tr>
             <td>17:00 - 18:00</td>
-            <td>Wrap up work, Commute</td>
-            <td>Wrap up work, Commute</td>
-            <td>Wrap up work, Commute</td>
-            <td>Wrap up work, Commute</td>
-            <td>Wrap up work, Commute</td>
-            <td>Dinner prep</td>
-            <td>Dinner</td>
+            <td><div class="task"><input type="checkbox" data-day="Monday" data-time="17:00 - 18:00">Wrap up work, Commute</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Tuesday" data-time="17:00 - 18:00">Wrap up work, Commute</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Wednesday" data-time="17:00 - 18:00">Wrap up work, Commute</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Thursday" data-time="17:00 - 18:00">Wrap up work, Commute</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Friday" data-time="17:00 - 18:00">Wrap up work, Commute</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Saturday" data-time="17:00 - 18:00">Dinner prep</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Sunday" data-time="17:00 - 18:00">Dinner</div></td>
         </tr>
         <tr>
             <td>18:00 - 20:00</td>
-            <td>Dinner, Relax</td>
-            <td>Dinner, Relax</td>
-            <td>Dinner, Relax</td>
-            <td>Dinner, Relax</td>
-            <td>Dinner, Relax</td>
-            <td>Dinner, Evening activities</td>
-            <td>Evening relaxation</td>
+            <td><div class="task"><input type="checkbox" data-day="Monday" data-time="18:00 - 20:00">Dinner, Relax</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Tuesday" data-time="18:00 - 20:00">Dinner, Relax</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Wednesday" data-time="18:00 - 20:00">Dinner, Relax</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Thursday" data-time="18:00 - 20:00">Dinner, Relax</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Friday" data-time="18:00 - 20:00">Dinner, Relax</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Saturday" data-time="18:00 - 20:00">Dinner, Evening activities</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Sunday" data-time="18:00 - 20:00">Evening relaxation</div></td>
         </tr>
         <tr>
             <td>20:00 - 22:00</td>
-            <td>Personal time, Hobbies</td>
-            <td>Personal time, Hobbies</td>
-            <td>Personal time, Hobbies</td>
-            <td>Personal time, Hobbies</td>
-            <td>Personal time, Hobbies</td>
-            <td>Watch TV, Read</td>
-            <td>Prepare for bed</td>
+            <td><div class="task"><input type="checkbox" data-day="Monday" data-time="20:00 - 22:00">Personal time, Hobbies</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Tuesday" data-time="20:00 - 22:00">Personal time, Hobbies</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Wednesday" data-time="20:00 - 22:00">Personal time, Hobbies</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Thursday" data-time="20:00 - 22:00">Personal time, Hobbies</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Friday" data-time="20:00 - 22:00">Personal time, Hobbies</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Saturday" data-time="20:00 - 22:00">Watch TV, Read</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Sunday" data-time="20:00 - 22:00">Prepare for bed</div></td>
         </tr>
         <tr>
             <td>22:00 - 23:00</td>
-            <td>Bedtime routine</td>
-            <td>Bedtime routine</td>
-            <td>Bedtime routine</td>
-            <td>Bedtime routine</td>
-            <td>Bedtime routine</td>
-            <td>Bedtime routine</td>
-            <td>Bedtime routine</td>
+            <td><div class="task"><input type="checkbox" data-day="Monday" data-time="22:00 - 23:00">Bedtime routine</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Tuesday" data-time="22:00 - 23:00">Bedtime routine</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Wednesday" data-time="22:00 - 23:00">Bedtime routine</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Thursday" data-time="22:00 - 23:00">Bedtime routine</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Friday" data-time="22:00 - 23:00">Bedtime routine</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Saturday" data-time="22:00 - 23:00">Bedtime routine</div></td>
+            <td><div class="task"><input type="checkbox" data-day="Sunday" data-time="22:00 - 23:00">Bedtime routine</div></td>
         </tr>
     </table>
+    <script>
+        // Load checked state from localStorage
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            const key = checkbox.dataset.day + '-' + checkbox.dataset.time;
+            const checked = localStorage.getItem(key) === 'true';
+            checkbox.checked = checked;
+        });
+
+        // Save checked state to localStorage on change
+        document.addEventListener('change', (e) => {
+            if (e.target.type === 'checkbox') {
+                const key = e.target.dataset.day + '-' + e.target.dataset.time;
+                localStorage.setItem(key, e.target.checked);
+            }
+        });
+    </script>
 </body>
 </html>
